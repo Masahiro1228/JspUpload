@@ -1,0 +1,88 @@
+/**窗体级DIV容器*/
+#mainDiv{
+	width:950px;
+	border:0px solid #227799;
+	margin-left :18px;
+}
+
+body,tr,td,p,div{
+	font-size:12px;
+	font-family:arial;
+}
+
+/**普通文本框样式*/
+.normalTxt{
+	font-size:12px;
+	border:2px redge #227799;
+	width:120px;
+	height:18px;
+}
+
+/***/
+.normalBtn{
+	font-size:12px;
+	border:1px redge bdad34;
+	background-color:#dd9a22;
+	width:50px;
+	height:18px;
+}
+.middleTxt{
+font-size:12px;
+	border:2px redge #227799;
+	width:250px;
+	height:20px;
+}
+.longTxt{
+	font-size:12px;
+	border:2px redge #227799;
+	width:450px;
+	height:20px;
+}
+
+/**超级连接样式*/
+a{
+	text-decoration:none;
+	color:blue;
+	font-size:12px;
+}
+
+a:hover{
+	text-decoration:underline;
+	color:#dd7711;
+	font-size:12px;
+}
+
+
+.titleA{
+	text-decoration:none;
+	color:blue;
+	font-size:28px;
+	font-family:sans-serif;
+	font-weight: 2px;
+}
+
+.titleA:hover{
+	text-decoration:none;
+	color:#221888;
+	font-size:28px;
+}
+
+.normalP{
+	font-size:12px;
+	color:#777799;
+}
+
+table{
+	border-top:opx;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:1px solid #bbbd99;
+}
+
+.cboSelect{
+	font-size:12px;
+	border:2px redge #227799;
+	width:150px;
+	height:20px;
+}
+
