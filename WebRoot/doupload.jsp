@@ -11,45 +11,45 @@
 	</head>
 	<body>
 		<%
-			//´´½¨Ò»¸öSmartUpload¶ÔÏó
+			//åˆ›å»ºä¸€ä¸ªSmartUploadå¯¹è±¡
 			SmartUpload su = new SmartUpload();
-			//ÉÏ´«³õÊ¼»¯
+			//ä¸Šä¼ åˆå§‹åŒ–
 			su.initialize(pageContext);
-			//Éè¶¨ÉÏ´«ÏŞÖÆ  Ã¿¸öÉÏ´«ÎÄ¼şµÄ×î´ó³¤¶È
+			//è®¾å®šä¸Šä¼ é™åˆ¶  æ¯ä¸ªä¸Šä¼ æ–‡ä»¶çš„æœ€å¤§é•¿åº¦
 			su.setMaxFileSize(1000000000);
 
-			//ÏŞÖÆ×ÜÉÏ´«Êı¾İµÄ×Ü³¤¶È
+			//é™åˆ¶æ€»ä¸Šä¼ æ•°æ®çš„æ€»é•¿åº¦
 			su.setTotalMaxFileSize(2000000000);
 
-			//ÔÊĞíÉÏ´«µÄÎÄ¼ş Í¨¹ıÀ©Õ¹ÃûÏŞÖÆ  
-			su.setAllowedFilesList("jpg,rar,dmp,gif,png,ppt");
+			//å…è®¸ä¸Šä¼ çš„æ–‡ä»¶ é€šè¿‡æ‰©å±•åé™åˆ¶  
+			su.setAllowedFilesList("jpg, rar, dmp, gif, png, ppt");
 
 			boolean sign = true;
 
 			try {
-				//Éè¶¨½ûÖ¹ÉÏ´«µÄÎÄ¼ş Í¨¹ıÀ©Õ¹ÃûÏŞÖÆ
-				su.setDeniedFilesList("exe,bat,jsp,html,htm");
-				//ÉÏ´«ÎÄ¼ş
+				//è®¾å®šç¦æ­¢ä¸Šä¼ çš„æ–‡ä»¶ é€šè¿‡æ‰©å±•åé™åˆ¶
+				su.setDeniedFilesList("exe, bat, jsp, html, htm");
+				//ä¸Šä¼ æ–‡ä»¶
 				su.upload();
-				//´´½¨×Ô¼ºµÄRequest ¶ÔÏó
+				//åˆ›å»ºè‡ªå·±çš„Request å¯¹è±¡
 				Request myRequest = su.getRequest();
-				//µÃµ½Ãû³Æ
+				//å¾—åˆ°åç§°
 				String name = myRequest.getParameter("name");	
-				//µÃµ½ÎÄ¼şºó×º
+				//å¾—åˆ°æ–‡ä»¶åç¼€
 				String ext = su.getFiles().getFile(0).getFileExt();
-				//×é³É×Ô¶¨ÒåµÄÎÄ¼şÃû³Æ
+				//ç»„æˆè‡ªå®šä¹‰çš„æ–‡ä»¶åç§°
 				MyPathUtil util = new MyPathUtil();
 				String fileName = util.getIPTimeRand()+"."+ext;
-				//µÃµ½ÎÄ±¾ÄÚÈİ
+				//å¾—åˆ°æ–‡æœ¬å†…å®¹
 				String content = myRequest.getParameter("content");
-				//µÃµ½ÎÄ¼ş´óĞ¡
+				//å¾—åˆ°æ–‡ä»¶å¤§å°
 				int longSize= su.getSize();
-				//½«ÉÏ´«ÎÄ¼ş±£´æµ½Ö¸¶¨Ä¿Â¼
-				 // ±£´æÎÄ¼ş
+				//å°†ä¸Šä¼ æ–‡ä»¶ä¿å­˜åˆ°æŒ‡å®šç›®å½•
+				 // ä¿å­˜æ–‡ä»¶
    				su.getFiles().getFile(0).saveAs(getServletContext().getRealPath("/") +"upload//"+fileName) ;
 				
 				UploadDao dao = new UploadDao();
-				int res = dao.addFile(name,fileName,longSize,content);
+				int res = dao.addFile(name, fileName, longSize, content);
 				
 				if(res<=0){
 					sign=false;
@@ -60,9 +60,9 @@
 			}
 			
 			if(sign){
-				out.println("<script>alert('ÉÏ´«³É¹¦£¡');</script>");
+				out.println("<script>alert('ä¸Šä¼ æˆåŠŸï¼');</script>");
 			}else{
-				out.println("<script>alert('ÉÏ´«Ê§°Ü£¡');</script>");
+				out.println("<script>alert('ä¸Šä¼ å¤±è´¥ï¼');</script>");
 			}
 			out.println("<script>location.href='index.jsp';</script>");
 		%>
